@@ -4,7 +4,6 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.0'
 
 # database
-gem 'sqlite3'
 #gem 'pg'
 
 gem 'haml'
@@ -32,6 +31,10 @@ group :assets do
 #  gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
 #                                :github => 'anjlab/bootstrap-rails',
 #                                :branch => '3.0.0'
+end
+
+group :development, :test do
+  gem 'sqlite3'
 end
 
 group :doc do
