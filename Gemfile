@@ -4,7 +4,8 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.0'
 
 # database
-#gem 'pg'
+gem 'pg'
+gem 'sqlite3'
 
 gem 'haml'
 
@@ -34,7 +35,6 @@ group :assets do
 end
 
 group :development, :test do
-  gem 'sqlite3'
 end
 
 group :doc do
