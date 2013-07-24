@@ -29,9 +29,9 @@ gem 'jbuilder', '~> 1.2'
 
 group :assets do
   gem 'sass-rails', '~> 4.0.0'
-#  gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
-#                                :github => 'anjlab/bootstrap-rails',
-#                                :branch => '3.0.0'
+  gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
+                                :github => 'anjlab/bootstrap-rails',
+                                :branch => '3.0.0'
 end
 
 group :doc do
