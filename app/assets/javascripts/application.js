@@ -13,5 +13,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require flipclock/*
+//= require_tree flipclock
 //= require twitter/bootstrap
