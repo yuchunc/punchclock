@@ -1,2 +1,21 @@
 @import "twitter/bootstrap";
-@import "twitter/bootstrap-responsive";
+//@import "twitter/bootstrap-responsive";
+
+
+.body {
+  background: url('background.png') repeat top left;
+}
+
+.navbar#header {
+  background-color: inherit;
+  margin-bottom: 0px;
+  height: 80px;
+}
+
+.content {
+  .container {
+    min-height: 890px;
+  }
+}
+
+
