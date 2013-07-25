@@ -27,13 +27,12 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
-group :assets do
-  gem 'sass-rails', '~> 4.0.0'
-#  gem 'twitter-bootstrap-rails'
-  gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
-                                :github => 'anjlab/bootstrap-rails',
-                                :branch => '3.0.0'
-end
+# Rails 4 fuck me over with assets group removal
+gem 'sass-rails'
+#  gem 'bootstrap-sass', '~> 2.3.2.1'
+gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
+                              :github => 'anjlab/bootstrap-rails',
+                              :branch => '3.0.0'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
