@@ -10,4 +10,6 @@
  *
  *= require punchclock_bootstrap
  *= require flipclock
+ *= require_self
+ *= require_tree .
  */
