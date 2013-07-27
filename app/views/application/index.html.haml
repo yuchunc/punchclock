@@ -1,7 +1,24 @@
 .row
   .span12
-    一劃開天
-  .clock
+    .clock
+
+.row
+  .span12
+    %table.table.table-striped.table-condensed
+      %thead
+        %tr
+          %th 日期
+          %th 上班時間
+          %th 下班時間
+
+      %tbody
+        %tr
+          %td= Time.now.to_date
+          %td= l @today_punchcard.punchin.to_time rescue nil
+          %td= l @today_punchcard.punchout.to_time rescue nil
+
+
+=debug @today_punchcard
 
 :javascript
   var clock = $('.clock').FlipClock();

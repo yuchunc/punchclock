@@ -9,6 +9,9 @@ gem 'sqlite3'
 
 gem 'haml'
 
+gem 'omniauth-facebook'
+gem 'figaro'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
