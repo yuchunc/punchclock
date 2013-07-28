@@ -1,5 +1,13 @@
 .navbar#header
   .navbar-inner
     .container
+      .pull-right
+        -if current_user
+          = current_user.name
+          = "已登入 | "
+          = link_to "登出", signout_path
+        -else
+          = link_to "用FB登入", '/auth/facebook'
+
       .brand
         %h2= link_to "打卡鐘", root_path
