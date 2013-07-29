@@ -31,7 +31,8 @@
 			time = time ? time : (this.factory.time.time || this.factory.time.getMilitaryTime());
 
 			//if(time.length > children.length) {
-      console.log(time)
+      time.pop();
+      time.pop();
 			if(time.length > children.length) {
 				$.each(time, function(i, digit) {
 					t.factory.lists.push(t.createList(digit));
@@ -41,8 +42,8 @@
 			this.dividers.push(this.createDivider());
 			this.dividers.push(this.createDivider());
 
-			//$(this.dividers[0]).insertBefore(this.factory.lists[this.factory.lists.length - 2].$obj);
-			$(this.dividers[1]).insertBefore(this.factory.lists[this.factory.lists.length - 4].$obj);
+			$(this.dividers[0]).insertBefore(this.factory.lists[this.factory.lists.length - 2].$obj);
+      //$(this.dividers[1]).insertBefore(this.factory.lists[this.factory.lists.length - 4].$obj);
 
 			this._clearExcessDigits();
 
@@ -57,6 +58,9 @@
 
 		flip: function(time) {
 			time = time ? time : this.factory.time.getMilitaryTime();
+      $(".flip-clock-dot").toggle();
+      time.pop();
+      time.pop();
 			this.base(time);
 		},
 
