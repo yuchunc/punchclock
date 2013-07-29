@@ -21,7 +21,7 @@
 =debug @today_punchcard
 
 :javascript
-  var clock = $('.clock').FlipClock();
-  clock.setTime(3600);
-  clock.getOption('propName');
+  var clock = $('.clock').FlipClock({
+    clockFace: 'TwentyFourHourClock'
+  });
 
