@@ -3,6 +3,12 @@
     .clock
 
 .row
+  .span9
+    %ul{ class: "nav nav-tabs" }
+      %li{ class: "#{'active'}"}= link_to "今天", root_path
+      %li
+
+.row
   .span12
     %table.table.table-striped.table-condensed
       %thead
@@ -11,11 +17,11 @@
           %th 上班時間
           %th 下班時間
 
-      %tbody
-        %tr
-          %td= Time.now.to_date
-          %td= l @today_punchcard.punchin.to_time rescue nil
-          %td= l @today_punchcard.punchout.to_time rescue nil
+        %tbody
+          %tr
+            %td= Time.now.to_date
+            %td= l @today_punchcard.punchin.to_time rescue nil
+            %td= l @today_punchcard.punchout.to_time rescue nil
 
 
 =debug @today_punchcard
