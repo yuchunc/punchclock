@@ -1,15 +1,14 @@
-.row
-  .span12
+.span9
+  .row
     .clock
 
-.row
-  .span9
-    %ul{ class: "nav nav-tabs" }
-      %li{ class: "#{'active'}"}= link_to "今天", root_path
+  - if !@today.nil?
+    .row
+      %h4 今天
+      %h6= "上班: #{@today.punchin.to_time}"
+      %h6= "下班: #{@today.punchin.to_time}"
 
-.row
-  .span9
-    %div{ class: ''}
+  .row
     %table.table.table-striped.table-condensed
       %thead
         %tr
@@ -17,14 +16,12 @@
           %th 上班時間
           %th 下班時間
 
-        %tbody
+      %tbody
+        - @this_week.each do |tw|
           %tr
-            %td= Time.now.to_date
-            %td= l @today_punchcard.punchin.to_time rescue nil
-            %td= l @today_punchcard.punchout.to_time rescue nil
-
-
-=debug @today_punchcard
+            %td= l tw.punchin.to_date
+            %td= l tw.punchin.to_time
+            %td= l tw.punchout.to_tima
 
 :javascript
   var clock = $('.clock').FlipClock({

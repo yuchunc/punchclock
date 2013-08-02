@@ -178,7 +178,7 @@
 
 .flip-clock-divider:first-child { width: 0; }
 
-.flip-clock-dot { 
+.flip-clock-dot {
 	display: block;
 	background: rgb(50, 52, 52);
 	width: 10px;
@@ -199,12 +199,12 @@
 .flip-clock-divider.minutes .flip-clock-label { right: -88px; }
 .flip-clock-divider.seconds .flip-clock-label { right: -91px; }
 
-.flip-clock-dot.top { 
+.flip-clock-dot.top {
 	top: 30px;
 	left: 5px;
 }
 
-.flip-clock-dot.bottom { 
+.flip-clock-dot.bottom {
 	bottom: 30px;
 	left: 5px;
 }

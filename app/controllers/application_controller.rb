@@ -6,11 +6,11 @@ class ApplicationController < ActionController::Base
   layout "application"
 
   def index
-    @today_punchcard = Punchcard.find_or_initialize_by punchin: Time.now
+    @today = Punchcard.find_by punchin: Time.now.to_date
+    @this_week = Punchcard.this_week
   end
 
   def punch_in
-
   end
 
 private
