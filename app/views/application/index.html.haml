@@ -1,13 +1,29 @@
-.span9
+
+-if current_user
   .row
-    .clock
+    .span9
+      %ul.nav.nav-tabs#user_functions
+        %li.active= link_to "今天", root_path
+        %li= link_to "這禮拜", '#'
+        %li= link_to "月曆", '#'
+        %li= link_to "公司資料", '#'
 
-  - if !@today.nil?
-    .row
-      %h4 今天
-      %h6= "上班: #{@today.punchin.to_time}"
-      %h6= "下班: #{@today.punchin.to_time}"
+.row
+  .span9.pane
+    %h4 今天
+    #today_in
+      - if @today.present? and !@today.punchin.nil?
+        = "上班時間: #{@today.punchin.to_time}"
+      - else
+        = "上班時間: 今天還沒上班喔!"
 
+    #today_out
+      - if @today.present? and !@today.punchout.nil?
+        = "下班時間: #{@today.punchout.to_time}"
+      - else
+        = "下班時間: 今天還沒下班喔!"
+
+- if !@this_week.empty?
   .row
     %table.table.table-striped.table-condensed
       %thead
