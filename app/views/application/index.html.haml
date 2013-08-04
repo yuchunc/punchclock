@@ -1,7 +1,7 @@
 
 -if current_user
   .row
-    .span9
+    .col-lg-9
       %ul.nav.nav-tabs#user_functions
         %li.active= link_to "今天", root_path
         %li= link_to "這禮拜", '#'
@@ -9,19 +9,17 @@
         %li= link_to "公司資料", '#'
 
 .row
-  .span9.pane
-    %h4 今天
-    #today_in
-      - if @today.present? and !@today.punchin.nil?
-        = "上班時間: #{@today.punchin.to_time}"
-      - else
-        = "上班時間: 今天還沒上班喔!"
+  .col-lg-9.pane
+    - if @today.present? and !@today.punchin.nil?
+      = link_to "上班時間: #{@today.punchin.to_time}", class: "btn btn-warning btn-large btn-block", disabled: "disabled"
+    - else
+      = link_to "上工囉!", '#', class: "btn btn-warning btn-large btn-block"
 
-    #today_out
-      - if @today.present? and !@today.punchout.nil?
-        = "下班時間: #{@today.punchout.to_time}"
-      - else
-        = "下班時間: 今天還沒下班喔!"
+    - if @today.present? and !@today.punchout.nil?
+      = " #{@today.punchout.to_time}"
+      = link_to "下班時間: #{@today.punchout.to_time}", class: "btn btn-warning btn-large btn-block", disabled: "disabled"
+    - else
+      = link_to "下班!YEAH!", '#', class: "btn btn-info btn-large btn-block"
 
 - if !@this_week.empty?
   .row
