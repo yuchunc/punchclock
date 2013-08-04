@@ -6,7 +6,6 @@
   background: url('background.png') repeat top left;
 
   #user_functions {
-    margin-top: 20px;
   }
 }
 
@@ -20,6 +19,10 @@
   .container {
     min-height: 890px;
   }
+}
+
+#clock {
+  margin-bottom: 20px;
 }
 
 .pane {

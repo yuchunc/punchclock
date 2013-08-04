@@ -6,11 +6,26 @@ class ApplicationController < ActionController::Base
   layout "application"
 
   def index
-    @today = Punchcard.find_by punchin: Time.now.to_date
+    @today = Punchcard.find_by date: Time.now.to_date
     @this_week = Punchcard.this_week
   end
 
   def punch_in
+    if current_user
+      Punchcard.create!( date: Time.now.to_date, punchin: Time.now )
+      render root_path
+    else
+      redirect_to '/auth/facebook'
+    end
+  end
+
+  def punch_out
+    if current_user
+      Punchcard.find("created_at")
+      render root_path
+    else
+      redirect_to '/auth/facebook'
+    end
   end
 
 private

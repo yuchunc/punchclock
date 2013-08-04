@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130728004009) do
+ActiveRecord::Schema.define(version: 20130804031401) do
 
   create_table "punchcards", force: true do |t|
     t.datetime "punchin"
     t.datetime "punchout"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.date     "date"
   end
 
   create_table "users", force: true do |t|

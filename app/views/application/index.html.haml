@@ -15,11 +15,11 @@
     - else
       = link_to "上工囉!", '#', class: "btn btn-warning btn-large btn-block"
 
-    - if @today.present? and !@today.punchout.nil?
-      = " #{@today.punchout.to_time}"
-      = link_to "下班時間: #{@today.punchout.to_time}", class: "btn btn-warning btn-large btn-block", disabled: "disabled"
-    - else
-      = link_to "下班!YEAH!", '#', class: "btn btn-info btn-large btn-block"
+    - if @today.present?
+      - if !@today.punchout.nil?
+        = link_to "下班時間: #{@today.punchout.to_time}", class: "btn btn-warning btn-large btn-block", disabled: "disabled"
+      - if @today.punchin.nil?
+        = link_to "下班!YEAH!", '#', class: "btn btn-info btn-large btn-block"
 
 - if !@this_week.empty?
   .row
