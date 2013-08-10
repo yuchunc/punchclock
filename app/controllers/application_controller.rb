@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   def punch_in
     if current_user
       Punchcard.create!( date: Time.now.to_date, punchin: Time.now )
-      render root_path
+      render nothing: true
     else
       redirect_to '/auth/facebook'
     end
@@ -21,8 +21,8 @@ class ApplicationController < ActionController::Base
 
   def punch_out
     if current_user
-      Punchcard.find("created_at")
-      render root_path
+      Punchcard.find( date: Time.now.to_date ).update!( punchout: Time.now)
+      render nothing: true
     else
       redirect_to '/auth/facebook'
     end
