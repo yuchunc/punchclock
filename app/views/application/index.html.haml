@@ -13,13 +13,13 @@
     - if @today.present? and !@today.punchin.nil?
       = link_to "上班時間: #{@today.punchin.to_time}", class: "btn btn-warning btn-large btn-block", disabled: "disabled"
     - else
-      = link_to "上工囉!", '#', class: "btn btn-warning btn-large btn-block"
+      = link_to "上工囉!", '#', class: "btn btn-warning btn-large btn-block", id:"punchin"
 
     - if @today.present?
       - if !@today.punchout.nil?
         = link_to "下班時間: #{@today.punchout.to_time}", class: "btn btn-warning btn-large btn-block", disabled: "disabled"
       - if @today.punchin.nil?
-        = link_to "下班!YEAH!", '#', class: "btn btn-info btn-large btn-block"
+        = link_to "下班!YEAH!", '#', class: "btn btn-info btn-large btn-block", id: "punchout"
 
 - if !@this_week.empty?
   .row
@@ -42,15 +42,15 @@
     clockFace: 'TwentyFourHourClock'
   });
 
-  $('#punchin').click( function(e) {
-    e.stopPropagation();
+  $("#punchin").click( function(e) {
+    e.preventDefault();
     $.get("punchin", function(resp) {
       location.reload();
     });
   });
 
-  $('#punchout').click( function(e) {
-    e.stopPropagation();
+  $("#punchout").click( function(e) {
+    e.preventDefault();
     $.get("punchout", function(resp) {
       location.reload();
     });
