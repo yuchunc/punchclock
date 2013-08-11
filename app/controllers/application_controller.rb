@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   def index
     @today = Punchcard.find_by date: Time.now.to_date
-    @this_week = Punchcard.this_week
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
   def punch_in
