@@ -11,7 +11,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130811082053) do
+ActiveRecord::Schema.define(version: 20130811142301) do
+
+  create_table "companies", force: true do |t|
+    t.string   "name"
+    t.string   "country"
+    t.string   "city"
+    t.string   "district"
+    t.string   "address"
+    t.string   "phone"
+    t.string   "postal_code"
+    t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "jobs", force: true do |t|
+    t.string   "name",           null: false
+    t.integer  "pay_per_hour"
+    t.integer  "hours_per_week"
+    t.boolean  "ongoing"
+    t.boolean  "deleted"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.integer  "company_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "punchcards", force: true do |t|
     t.datetime "punchin"
