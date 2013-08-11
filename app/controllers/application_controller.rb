@@ -3,16 +3,16 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  before_action :current_user
   layout "application"
 
   def index
-    @today = Punchcard.find_by date: Time.now.to_date
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    @today = Punchcard.find_by user_id: session[:user_id], date: Time.now.to_date
   end
 
   def punch_in
     if current_user
-      Punchcard.create!( date: Time.now.to_date, punchin: Time.now )
+      Punchcard.create!( date: Time.now.to_date, punchin: Time.now, user_id: session[:user_id] )
       render nothing: true
     else
       redirect_to '/auth/facebook'

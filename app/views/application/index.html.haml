@@ -10,7 +10,8 @@
 
 .row
   .col-lg-9.pane
-    = debug @current_user
+    = debug @today
+    = debug session[:user_id]
     - if @today.present? and !@today.punchin.nil?
       = link_to "上班時間: #{l @today.punchin.to_time}", '#', class: "btn btn-warning btn-large btn-block", disabled: "disabled"
     - else
