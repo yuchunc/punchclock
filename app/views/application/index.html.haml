@@ -42,4 +42,16 @@
     clockFace: 'TwentyFourHourClock'
   });
 
+  $("#punchin").click( function(e) {
+    e.preventDefault();
+    $.get("punchin", function(resp) {
+      location.reload();
+    });
+  });
 
+  $("#punchout").click( function(e) {
+    e.preventDefault();
+    $.get("punchout", function(resp) {
+      location.reload();
+    });
+  });

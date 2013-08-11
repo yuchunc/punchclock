@@ -3,6 +3,8 @@ Punchclock::Application.routes.draw do
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'sessions#destroy', as: 'signout'
+  get 'punchin', to: 'application#punch_in', as: 'punchin'
+  get 'punchout', to: 'application#punch_out', as: 'punchout'
 
   root "application#index"
 
