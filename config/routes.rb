@@ -6,6 +6,8 @@ Punchclock::Application.routes.draw do
   get 'punchin', to: 'application#punch_in', as: 'punchin'
   get 'punchout', to: 'application#punch_out', as: 'punchout'
 
+  resource :info
+
   root "application#index"
 
   # The priority is based upon order of creation: first created -> highest priority.

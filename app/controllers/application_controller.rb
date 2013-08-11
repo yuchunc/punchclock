@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
 
   def punch_in
     if current_user
-      Punchcard.create!( date: Time.now.to_date, punchin: Time.now, user_id: session[:user_id] )
+      Punchcard.create!( date: Time.now.to_date, punchin: Time.now, user: @current_user, job_id: current_user.current_job_id )
       render nothing: true
     else
       redirect_to '/auth/facebook'

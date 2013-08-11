@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130811151449) do
+ActiveRecord::Schema.define(version: 20130811233414) do
 
   create_table "companies", force: true do |t|
     t.string   "name"
@@ -30,7 +30,6 @@ ActiveRecord::Schema.define(version: 20130811151449) do
     t.string   "name",           null: false
     t.integer  "pay_per_hour"
     t.integer  "hours_per_week"
-    t.boolean  "ongoing"
     t.boolean  "deleted"
     t.date     "start_date"
     t.date     "end_date"
@@ -58,6 +57,7 @@ ActiveRecord::Schema.define(version: 20130811151449) do
     t.datetime "oauth_expires_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "current_job_id"
   end
 
 end
