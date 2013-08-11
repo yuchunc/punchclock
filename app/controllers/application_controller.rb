@@ -21,7 +21,8 @@ class ApplicationController < ActionController::Base
 
   def punch_out
     if current_user
-      Punchcard.find( date: Time.now.to_date ).update!( punchout: Time.now)
+      pc = Punchcard.find_by date: Time.now.to_date
+      pc.update!( punchout: Time.now)
       render nothing: true
     else
       redirect_to '/auth/facebook'
