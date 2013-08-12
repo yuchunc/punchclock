@@ -1,0 +1,5 @@
+Aug. 12
+* Worked on getting the models setup for adding informations about each jobs and associations to the company info
+* set up the controller for adding infos, routes added
+todo
+* add view to the CRUD of the job and company infos
