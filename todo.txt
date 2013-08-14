@@ -1,3 +1,6 @@
+Aug 14
+*remember to add user_id to the view eh..
+
 Aug. 12
 * Worked on getting the models setup for adding informations about each jobs and associations to the company info
 * set up the controller for adding infos, routes added
