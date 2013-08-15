@@ -6,7 +6,7 @@ Punchclock::Application.routes.draw do
   get 'punchin', to: 'application#punch_in', as: 'punchin'
   get 'punchout', to: 'application#punch_out', as: 'punchout'
 
-  resource :info
+  resources :info
 
   root "application#index"
 

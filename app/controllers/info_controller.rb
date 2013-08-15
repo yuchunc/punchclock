@@ -1,4 +1,4 @@
-class Info < ApplicationController
+class InfoController < ApplicationController
   before_action :find_job, only: [:show, :edit, :update, :delete]
 
   def index
