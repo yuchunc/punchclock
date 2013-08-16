@@ -1,5 +1,5 @@
 .row
-  .col-lg-9.pane
+  .col-9
     -if !@jobs.empty?
       %table.table.table-condensed.table-hover
         %thead
@@ -18,4 +18,4 @@
       %h2 你還沒有資料喔!
 
     .action
-      = link_to "建立工作", new_info_path, class: "btn btn-primary"
+      = link_to "建立工作", new_job_path, class: "btn btn-primary"

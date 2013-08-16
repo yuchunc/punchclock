@@ -1,5 +1,5 @@
 .row
-  .col-lg-9
+  .col-9
     - if @today.present? and !@today.punchin.nil?
       = link_to "上班時間: #{l @today.punchin.to_time}", '#', class: "btn btn-warning btn-large btn-block", disabled: "disabled"
     - else
@@ -28,10 +28,6 @@
             %td= l tw.punchout.to_tima
 
 :javascript
-  var clock = $('.clock').FlipClock({
-    clockFace: 'TwentyFourHourClock'
-  });
-
   $("#punchin").click( function(e) {
     e.preventDefault();
     $.get("punchin", function(resp) {

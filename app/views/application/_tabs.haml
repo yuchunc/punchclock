@@ -1,11 +1,11 @@
 -if current_user
   .row
-    .col-lg-9
+    .col-9
       %ul.nav.nav-tabs#user_functions
         %li#application= link_to "今天 #{Time.now.to_date}", root_path
         %li#this_week= link_to "這禮拜", '#'
         %li#calendar= link_to "月曆", '#'
-        %li#info= link_to "公司資料", info_index_path
+        %li#job= link_to "公司資料", job_index_path
 
 :javascript
 
