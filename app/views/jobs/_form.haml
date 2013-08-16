@@ -1,0 +1,27 @@
+= form_for @job, html: { role: "form", class: "form-horizontal"} do |f|
+  .row
+    .form-group
+      .col-2.control-label
+        = f.label :name, "職稱"
+      .col-10.form-control
+        = f.text_field :name
+
+      .col-2.control-label
+        = f.label :pay_per_hour, "薪水/時"
+      .col-4.form-control
+        = f.text_field :pay_per_hour
+
+      .col-2.control-label
+        = f.label :hours_per_week, "時數/週"
+      .col-4.form-control
+        = f.text_field :hours_per_week
+
+      .col-2.control-label
+        = f.label :start_date, "開始(日期)"
+      .col-4.form-control
+        = f.text_field :start_date
+
+      .col-2.control-label
+        = f.label :end_date, "結束(日期)"
+      .col-4.form-control
+        = f.text_field :end_date

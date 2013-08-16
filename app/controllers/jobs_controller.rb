@@ -1,4 +1,4 @@
-class JobController < ApplicationController
+class JobsController < ApplicationController
   before_action :find_job, only: [:show, :edit, :update, :delete]
 
   def index
