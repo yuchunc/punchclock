@@ -5,11 +5,13 @@ class Job < ActiveRecord::Base
   before_save :check_company
 
   private
-    def check_company_company
-      if self.company.name.empty?
-        self.company = nil
-      else
-        self.company = Company.find_or_create_by(name: self.company.name)
+    def check_company
+      if !self.company.nil?
+        if self.company.name.empty?
+          self.company = nil
+        else
+          self.company = Company.find_or_create_by(name: self.company.name)
+        end
       end
     end
 end

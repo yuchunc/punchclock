@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130811233414) do
+ActiveRecord::Schema.define(version: 20130817021122) do
 
   create_table "companies", force: true do |t|
     t.string   "name"
@@ -27,10 +27,10 @@ ActiveRecord::Schema.define(version: 20130811233414) do
   end
 
   create_table "jobs", force: true do |t|
-    t.string   "name",           null: false
+    t.string   "name",                           null: false
     t.integer  "pay_per_hour"
     t.integer  "hours_per_week"
-    t.boolean  "deleted"
+    t.boolean  "deleted",        default: false
     t.date     "start_date"
     t.date     "end_date"
     t.integer  "company_id"
