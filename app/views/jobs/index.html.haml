@@ -1,6 +1,6 @@
 .row
   .col-9
-    -if !@jobs.empty?
+    - if !@jobs.empty?
       %table.table.table-condensed.table-hover
         %thead
           %tr
@@ -10,11 +10,12 @@
             %th
         %tbody
           -@jobs.each do |job|
-            %td= job.company.name rescue ""
-            %td= job.name
-            %td= job.hours_per_week
-            %td
-    -else
+            %tr
+              %td= job.company.name rescue ""
+              %td= job.name
+              %td= job.hours_per_week
+              %td
+    - else
       %h2 你還沒有資料喔!
 
     .action

@@ -4,6 +4,8 @@ class Job < ActiveRecord::Base
   has_many :punchcards
   before_save :check_company
 
+  accepts_nested_attributes_for :company
+
   private
     def check_company
       if !self.company.nil?

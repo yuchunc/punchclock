@@ -14,12 +14,16 @@ class JobsController < ApplicationController
   end
 
   def create
-    job = Job.new(job_params)
-    job.company = Company.new(company_params)
-    if job.save
-      redirect_to jobs_path
+    if params[:job][:name].present?
+      @job = Job.new(job_params)
+      @job.user = @current_user
+      if @job.save
+        redirect_to jobs_path
+      else
+        render :new
+      end
     else
-      render :new
+      redirect_to jobs_path
     end
   end
 
@@ -41,11 +45,8 @@ class JobsController < ApplicationController
     end
 
     def job_params
-      params.required(:job).permit(:name, :pay_per_hour, :hour_per_week,
-                                   :started_date, :end_date, user: @current_user,
-                                   company_attributes: [ :name, :country, :city, :url,
-                                                         :address, :phone, :postal_code
-                                                       ]
+      params.required(:job).permit(:name, :pay_per_hour, :hours_per_week, :start_date, :end_date,
+                                   company_attributes: [:name, :country, :city, :url, :address, :phone, :postal_code]
                                   )
     end
 
