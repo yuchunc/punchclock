@@ -10,20 +10,20 @@ class JobsController < ApplicationController
 
   def new
     @job = Job.new
+    @job.user = @current_user
     @job.company = Company.new
   end
 
   def create
-    if params[:job][:name].present?
-      @job = Job.new(job_params)
-      @job.user = @current_user
-      if @job.save
-        redirect_to jobs_path
-      else
-        render :new
-      end
-    else
+    @job = Job.new(job_params)
+    #@job.company ||= Company.new(company_params) if params[:job][:company][:name]
+    @job.user = @current_user
+    @current_user.update(current_job: @job) if params[:job][:current_job] == true
+    if @job.save
       redirect_to jobs_path
+    else
+      @job.company = Company.new
+      render :new, alert: "要輸入職務名稱喔!"
     end
   end
 

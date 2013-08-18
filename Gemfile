@@ -37,6 +37,8 @@ gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
                               :github => 'anjlab/bootstrap-rails',
                               :branch => '3.0.0'
 
+gem 'bootstrap-switch-rails'
+
 group :development, :test do
 end
 

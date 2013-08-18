@@ -2,7 +2,7 @@
 
   .row#company_toggle
     .col-12
-      #show= link_to "公司資訊", "#", class: "btn btn-warning"
+      = link_to "公司資訊", "#", class: "btn btn-warning", id: "show"
 
   = f.fields_for :company do |c|
     .row#company_form
@@ -63,6 +63,10 @@
         = f.label :end_date, "結束(日期)"
       .col-4.form-control
         = f.text_field :end_date
+      .col-2.control-label
+        = f.label :current_job, "在職"
+      .col-4.form-control
+        .make-switch.switch-small= f.check_box :current_job
 
   .row#action
     .col-12
