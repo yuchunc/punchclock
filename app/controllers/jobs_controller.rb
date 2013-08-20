@@ -28,10 +28,17 @@ class JobsController < ApplicationController
   end
 
   def edit
+    @job.company = Company.new if @job.company.nil?
   end
 
   def update
-    @job.update(params[:job])
+    if @job.update(job_params)
+      params[:job][:current_job] ? @current_user.update(current_job: @job) : @current_user.update(current_job: nil)
+      redirect_to jobs_path
+    else
+      @job.company = Company.new if @job.company.nil?
+      render :edit, alert: "要輸入職務名稱喔"
+    end
   end
 
   def deleted

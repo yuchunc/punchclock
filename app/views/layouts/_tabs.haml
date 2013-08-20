@@ -1,6 +1,5 @@
 .row
   .col-9
-    = debug flash
     - [:notice, :error, :alert].each do |level|
       - unless flash[level].blank?
         %div{ :class => "alert #{flash_class(level)}"}= content_tag :p, flash[level]
