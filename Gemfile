@@ -11,6 +11,7 @@ gem 'haml'
 
 gem 'omniauth-facebook'
 gem 'figaro'
+gem 'flash_render'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'

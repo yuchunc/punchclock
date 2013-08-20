@@ -53,6 +53,8 @@ GEM
     figaro (0.7.0)
       bundler (~> 1.0)
       rails (>= 3, < 5)
+    flash_render (1.1.0)
+      rails (>= 2.3.8)
     haml (4.0.3)
       tilt
     hashie (2.0.5)
@@ -147,6 +149,7 @@ DEPENDENCIES
   bootstrap-switch-rails
   coffee-rails (~> 4.0.0)
   figaro
+  flash_render
   haml
   jbuilder (~> 1.2)
   jquery-rails
