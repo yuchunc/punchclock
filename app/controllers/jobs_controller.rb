@@ -1,5 +1,5 @@
 class JobsController < ApplicationController
-  before_action :find_job, only: [:show, :edit, :update, :delete]
+  before_action :find_job, only: [:show, :edit, :update, :destroy]
 
   def index
     @jobs = Job.where( user: current_user, deleted: false )
@@ -41,8 +41,9 @@ class JobsController < ApplicationController
     end
   end
 
-  def deleted
+  def destroy
     @job.update(deleted: true)
+    redirect_to jobs_path
   end
 
   private
