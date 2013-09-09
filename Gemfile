@@ -37,8 +37,9 @@ gem 'sass-rails'
 gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
                               :github => 'anjlab/bootstrap-rails',
                               :branch => '3.0.0'
-
 gem 'bootstrap-switch-rails'
+#gem 'fullcalendar-rails'
+gem 'has_scope'
 
 group :development, :test do
 end

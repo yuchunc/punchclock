@@ -55,8 +55,10 @@ GEM
       rails (>= 3, < 5)
     flash_render (1.1.0)
       rails (>= 2.3.8)
+    fullcalendar-rails (1.6.4.0)
     haml (4.0.3)
       tilt
+    has_scope (0.5.1)
     hashie (2.0.5)
     hike (1.2.3)
     httpauth (0.2.0)
@@ -150,7 +152,9 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   figaro
   flash_render
+  fullcalendar-rails
   haml
+  has_scope
   jbuilder (~> 1.2)
   jquery-rails
   omniauth-facebook

@@ -5,6 +5,7 @@ Punchclock::Application.routes.draw do
   get 'signout', to: 'sessions#destroy', as: 'signout'
   get 'punchin', to: 'application#punch_in', as: 'punchin'
   get 'punchout', to: 'application#punch_out', as: 'punchout'
+  get 'calendar', to: 'calendar#calendar'
 
   resources :jobs
 
