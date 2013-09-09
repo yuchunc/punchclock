@@ -4,7 +4,7 @@
 
 
 .body {
-  background: url('background.png') repeat top left;
+  //background: url('background.png') repeat top left;
 
   #user_functions {
   }
@@ -37,6 +37,7 @@
 #records .calendar {
   border-collapse: collapse;
   width: 100%;
+  margin: 10px;
 
   td, th {
     font-family: "Lucida Grande", arial, helvetica, sans-serif;
