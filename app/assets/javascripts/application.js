@@ -16,4 +16,4 @@
 //= require twitter/bootstrap
 //= require bootstrap-switch
 //= require_tree ./flipclock/
-//= require fullcalendar
+// require fullcalendar

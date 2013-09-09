@@ -1,77 +1,65 @@
 = form_for @job, html: { role: "form", class: "form-horizontal"} do |f|
 
   .row#company_toggle
-    .col-12
+    .col-xs-12
       = link_to "公司資訊", "#", class: "btn btn-warning", id: "show"
 
   = f.fields_for :company do |c|
     .row#company_form
-      .col-12
+      .col-xs-12
         %h3 公司資料
       .form-group
-        .col-2.control-label
-          = c.label :name, "名稱"
-        .col-10.form-control
-          = c.text_field :name
-        .col-2.control-label
-          = c.label :country, "國家"
-        .col-4.c.rm-control
-          = c.text_field :country
-        .col-2.control-label
-          = c.label :city, "城市"
-        .col-4.c.rm-control
-          = c.text_field :city
-        .col-2.control-label
-          = c.label :address, "地址"
-        .col-10.c.rm-control
-          = c.text_field :address
-        .col-2.control-label
-          = c.label :phone, "電話"
-        .col-4.c.rm-control
-          = c.text_field :phone
-        .col-2.control-label
-          = c.label :postal_code, "郵遞區號"
-        .col-4.c.rm-control
-          = c.text_field :postal_code
-        .col-2.control-label
-          = c.label :url, "網址"
-        .col-10.c.rm-control
-          = c.text_field :url
+        -#.col-xs-2.control-label
+        = c.label :name, "名稱", class: "col-xs-2 control-label"
+        .col-xs-10
+          = c.text_field :name, class: "form-control"
+        = c.label :country, "國家", class: "col-xs-2 control-label"
+        .col-xs-4
+          = c.text_field :country, class: "form-control"
+        = c.label :city, "城市", class: "col-xs-2 control-label"
+        .col-xs-4
+          = c.text_field :city, class: "form-control"
+        = c.label :address, "地址", class: "col-xs-2 control-label"
+        .col-xs-10
+          = c.text_field :address, class: "form-control"
+        = c.label :phone, "電話", class: "col-xs-2 control-label"
+        .col-xs-4
+          = c.text_field :phone, class: "form-control"
+        = c.label :postal_code, "郵遞區號", class: "col-xs-2 control-label"
+        .col-xs-4
+          = c.text_field :postal_code, class: "form-control"
+        = c.label :url, "網址", class: "col-xs-2 control-label"
+        .col-xs-10
+          = c.text_field :url, class: "form-control"
 
 
   .row#job_form
-    .col-12
+    .col-xs-12
       %h3 工作資料
     .form-group
-      .col-2.control-label
-        = f.label :name, "職稱"
-      .col-10.form-control
-        = f.text_field :name
-      .col-2.control-label
-        = f.label :pay_per_hour, "薪水/時"
-      .col-4.form-control
-        = f.text_field :pay_per_hour
-      .col-2.control-label
-        = f.label :hours_per_week, "時數/週"
-      .col-4.form-control
-        = f.text_field :hours_per_week
-      .col-2.control-label
-        = f.label :start_date, "開始(日期)"
-      .col-4.form-control
-        = f.text_field :start_date
-      .col-2.control-label
-        = f.label :end_date, "結束(日期)"
-      .col-4.form-control
-        = f.text_field :end_date
+      = f.label :name, "職稱", class: "col-xs-2 control-label"
+      .col-xs-10
+        = f.text_field :name, class: "form-control"
+      = f.label :pay_per_hour, "薪水/時", class: "col-xs-2 control-label"
+      .col-xs-4
+        = f.text_field :pay_per_hour, class: "form-control"
+      = f.label :hours_per_week, "時數/週", class: "col-xs-2 control-label"
+      .col-xs-4
+        = f.text_field :hours_per_week, class: "form-control"
+      = f.label :start_date, "開始(日期)", class: "col-xs-2 control-label"
+      .col-xs-4
+        = f.text_field :start_date, class: "form-control"
+      = f.label :end_date, "結束(日期)", class: "col-xs-2 control-label"
+      .col-xs-4
+        = f.text_field :end_date, class: "form-control"
   .row
     .form-group
-      .col-2.control-label
-        = f.label :current_job, "在職"
-      .col-4.form-control
-        .make-switch.switch-small= f.check_box :current_job
+      = f.label :current_job, "在職", class: "col-xs-2 control-label"
+      .col-xs-4
+        .make-switch.switch-small= f.check_box :current_job, class: "form-control"
 
   .row#action
-    .col-12
+    .col-xs-12
       .pull-right= link_to "取消", jobs_path, class: "btn btn-primary"
       = f.submit "儲存", class: "btn btn-success"
 

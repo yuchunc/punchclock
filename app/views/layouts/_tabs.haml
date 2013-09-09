@@ -1,11 +1,11 @@
 .row
-  .col-9
+  .col-sm-9
     - [:notice, :error, :alert].each do |level|
       - unless flash[level].blank?
         %div{ :class => "alert #{flash_class(level)}"}= content_tag :p, flash[level]
 -if current_user
   .row
-    .col-xs-9
+    .col-sm-9
       %ul.nav.nav-tabs#user_functions
         %li#application= link_to "今天 #{Time.now.to_date}", root_path
         %li#calendar= link_to "月曆", calendar_path
