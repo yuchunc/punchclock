@@ -17,4 +17,18 @@ module ApplicationHelper
       worked_seconds
     end
   end
+
+  def cal_overtime_pay(overtime, pay_per_hour, date)
+    case date.wday
+    when 0, 6
+      pay_per_hour * 2
+    else
+      if overtime <= 2
+        (pay_per_hour * overtime * 1.33).to_i
+      else
+        ((pay_per_hour * 2 * 1.33) + (pay_per_hour * (overtime - 2)  * 1.66)).to_i
+      end
+    end
+  end
+
 end

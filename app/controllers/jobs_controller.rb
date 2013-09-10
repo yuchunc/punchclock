@@ -42,8 +42,12 @@ class JobsController < ApplicationController
   end
 
   def destroy
-    @job.update(deleted: true)
-    redirect_to jobs_path
+    if @job.update(deleted: true)
+      current_user.update(current_job: nil)
+      redirect_to jobs_path
+    else
+      redirect_to jobs_path, alert: "刪除失敗"
+    end
   end
 
   private

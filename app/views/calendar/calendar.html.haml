@@ -1,8 +1,24 @@
 #records
   .row
     .col-xs-9
+      %h2.text-center
+        = link_to "<", date: @date.prev_month
+        = @date.strftime("%B %Y")
+        = link_to ">", date: @date.next_month
+
+      - total_overtime, total_overtime_pay = 0, 0
       = calendar do |date|
         = date.day
         - if @punchcards_by_date[date]
           - overtime = cal_overtime(@punchcards_by_date[date].first, @work_seconds_per_week, date).to_i / 3600
+          - total_overtime += overtime if overtime > 0
+          - total_overtime_pay += cal_overtime_pay(overtime, current_user.current_job.pay_per_hour, date) if current_user.current_job && current_user.current_job.pay_per_hour
           %div= overtime > 0 ? "加班#{overtime}個小時" : "沒加班!"
+
+      %fieldset
+        %legend= "本月加班明細 Orz"
+        %dl.dl-horizontal
+          %dt= "總加班時數"
+          %dd= total_overtime
+          %dt= "加班費"
+          %dd= number_to_currency total_overtime_pay, precision: 0

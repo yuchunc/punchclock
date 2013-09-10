@@ -1,5 +1,5 @@
 .row
-  .col-lg-9
+  .col-lg-9#punch_buttons
     - if @today.present? and !@today.punchin.nil?
       = link_to "上班時間: #{l @today.punchin.to_time}", '#', class: "btn btn-warning btn-large btn-block", disabled: "disabled"
     - else
@@ -10,22 +10,6 @@
         = link_to "下班時間: #{l @today.punchout.to_time}", '#', class: "btn btn-info btn-large btn-block", disabled: "disabled"
       - else
         = link_to "下班!YEAH!", '#', class: "btn btn-info btn-large btn-block", id: "punchout"
-
--# if !@this_week.empty?
-  .row
-    %table.table.table-striped.table-condensed
-      %thead
-        %tr
-          %th 日期
-          %th 上班時間
-          %th 下班時間
-
-      %tbody
-        - @this_week.each do |tw|
-          %tr
-            %td= l tw.punchin.to_date
-            %td= l tw.punchin.to_time
-            %td= l tw.punchout.to_tima
 
 :javascript
   $("#punchin").click( function(e) {
