@@ -4,5 +4,5 @@
       = calendar do |date|
         = date.day
         - if @punchcards_by_date[date]
-          - if ![0, 6].include? date.wday
-            = cal_overtime(cal_workhour(@punchcards_by_date[date].first, date), date).to_i / 3600
+          - overtime = cal_overtime(@punchcards_by_date[date].first, @work_seconds_per_week, date).to_i / 3600
+          %div= overtime > 0 ? "加班#{overtime}個小時" : "沒加班!"

@@ -8,13 +8,13 @@ module ApplicationHelper
     end
   end
 
-  def cal_workhour(punchcard, date)
+  def cal_overtime(punchcard, work_seconds_week, date)
     punchcard.punchout ||= date.end_of_day
-    punchcard.punchout - punchcard.punchin
+    worked_seconds = punchcard.punchout - punchcard.punchin
+    if ![0, 6].include? date.wday
+      worked_seconds - work_seconds_week/5
+    else
+      worked_seconds
+    end
   end
-
-  def cal_overtime(worked_time, work_seconds, date)
-    ![0, 6].include? date.wday ? worked_time - work_seconds/5 : work_time
-  end
-
 end
