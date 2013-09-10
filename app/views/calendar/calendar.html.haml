@@ -3,3 +3,6 @@
     .col-xs-9
       = calendar do |date|
         = date.day
+        - if @punchcards_by_date[date]
+          - if ![0, 6].include? date.wday
+            = cal_overtime(cal_workhour(@punchcards_by_date[date].first, date), date).to_i / 3600
