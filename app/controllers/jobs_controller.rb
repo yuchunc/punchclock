@@ -33,7 +33,7 @@ class JobsController < ApplicationController
 
   def update
     if @job.update(job_params)
-      params[:job][:current_job] ? @current_user.update(current_job: @job) : @current_user.update(current_job: nil)
+      params[:job][:current_job] == "1" ? @current_user.update(current_job: @job) : @current_user.update(current_job: nil)
       redirect_to jobs_path
     else
       @job.company = Company.new if @job.company.nil?
