@@ -26,7 +26,6 @@ module CalendarHelper
       weeks.map do |week|
         content_tag :tr do
           week.map { |day| day_cell(day) }.join.html_safe
-          #content_tag :td, view.capture().join.html_safe
         end
       end.join.html_safe
     end
